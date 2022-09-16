@@ -3,6 +3,7 @@ import mediapipe as mp
 import time
 import threading
 import os
+import pathlib
 
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1980)
@@ -11,7 +12,7 @@ mpHands = mp.solutions.hands
 hands = mpHands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7)
 mpDraw = mp.solutions.drawing_utils
 
-path = 'E:\Projects\Gesture Recognition Camera\Images'
+path = str(pathlib.Path(__file__).parent.resolve()) + '\Images'
 number = 0
 cx1 = 0
 cy1 = 0
